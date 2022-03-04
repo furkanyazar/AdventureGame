@@ -24,7 +24,7 @@ Text based adventure game
 
 | Weapon | Id  | Damage | Money |
 | ------ | --- | ------ | ----- |
-| Gun    | 1   | 2      | 25    |
+| Pistol | 1   | 2      | 25    |
 | Sword  | 2   | 3      | 35    |
 | Rifle  | 3   | 7      | 45    |
 
@@ -32,9 +32,9 @@ Text based adventure game
 
 | Armor  | Id  | Shield | Money |
 | ------ | --- | ------ | ----- |
-| Pistol | 1   | 1      | 15    |
-| Sword  | 2   | 3      | 25    |
-| Rifle  | 3   | 5      | 40    |
+| Light  | 1   | 1      | 15    |
+| Medium | 2   | 3      | 25    |
+| Heavy  | 3   | 5      | 40    |
 
 ### PLACES
 
