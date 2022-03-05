@@ -20,7 +20,7 @@ Text based adventure game
 | Vampire | 2   | 4      | 14     | 7     |
 | Bear    | 3   | 7      | 20     | 12    |
 
-##### WEAPONRY
+##### WEAPONS
 
 | Weapon | Id  | Damage | Money |
 | ------ | --- | ------ | ----- |
@@ -30,7 +30,7 @@ Text based adventure game
 
 ##### ARMOURS
 
-| Armor  | Id  | Shield | Money |
+| Armour | Id  | Shield | Money |
 | ------ | --- | ------ | ----- |
 | Light  | 1   | 1      | 15    |
 | Medium | 2   | 3      | 25    |
@@ -54,5 +54,5 @@ Text based adventure game
   - Item: Water
 - Shopping centre
   - Feature: Supporting items are purchased
-  - Weapon: Pistol, Sword, Rifle
-  - Armor: Light, Medium, Heavy
+  - Weapons: Pistol, Sword, Rifle
+  - Armours: Light, Medium, Heavy
