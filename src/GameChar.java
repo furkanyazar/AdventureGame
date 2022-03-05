@@ -5,6 +5,7 @@ public abstract class GameChar {
     private int damage;
     private int health;
     private int money;
+    private Inventory inventory;
 
     public GameChar(int id, String name, int damage, int health, int money) {
         this.id = id;
@@ -12,6 +13,7 @@ public abstract class GameChar {
         this.damage = damage;
         this.health = health;
         this.money = money;
+        this.inventory = new Inventory();
     }
 
     public int getId() {
@@ -31,7 +33,7 @@ public abstract class GameChar {
     }
 
     public int getDamage() {
-        return damage;
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -52,6 +54,14 @@ public abstract class GameChar {
 
     public void setMoney(int money) {
         this.money = money;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 
 }

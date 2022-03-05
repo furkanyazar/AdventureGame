@@ -4,6 +4,8 @@ public class Player {
 
     private String name;
     private GameChar gameChar;
+
+    private Location location = null;
     private Scanner scanner = new Scanner(System.in);
 
     public Player(String name) {
@@ -13,7 +15,7 @@ public class Player {
     public void selectChar() {
         GameChar[] gameChars = { new Samurai(), new Archer(), new Knight() };
 
-        System.out.println("###  \t##########        \t#######  \t#######   \t######");
+        System.out.println("###  \t#####        \t#######  \t#######   \t######");
         for (GameChar gameChar : gameChars) {
             System.out.println("Id: " + gameChar.getId() + "\tName: " + gameChar.getName() + "\tDamage: "
                     + gameChar.getDamage() + "\tHealth: " + gameChar.getHealth() + "\tMoney: " + gameChar.getMoney());
@@ -28,7 +30,7 @@ public class Player {
             try {
                 selectedChar = Integer.parseInt(scanner.nextLine());
             } catch (Exception e) {
-                System.err.println("Wrong choice");
+                System.err.print("Wrong choice! ");
                 continue;
             }
 
@@ -46,12 +48,57 @@ public class Player {
                     choiceControl = true;
                     break;
                 default:
-                    System.err.println("Wrong choice");
-                    break;
+                    System.err.print("Wrong choice! ");
+                    continue;
             }
 
             System.out.println(gameChar.getName() + " has been chosen");
         }
+    }
+
+    public boolean selectLoc() {
+        printInfo();
+        System.out.println("###  \t#####           \t############");
+        System.out.println(
+                "Id: 1\tName: Safe House\tDescription: This is a safe home for you. There are no enemies here.");
+        System.out.println("Id: 2\tName: Tool Store\tDescription: Shop to buy weapons or armor");
+
+        int selectedLoc = 0;
+        boolean choiceControl = false;
+
+        while (!choiceControl) {
+            System.out.print("Choose the location you want to go to: ");
+
+            try {
+                selectedLoc = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.err.print("Wrong choice! ");
+                continue;
+            }
+
+            switch (selectedLoc) {
+                case 1:
+                    location = new SafeHouse(this);
+                    choiceControl = true;
+                    break;
+                case 2:
+                    location = new ToolStore(this);
+                    choiceControl = true;
+                    break;
+                default:
+                    System.err.print("Wrong choice! ");
+                    continue;
+            }
+        }
+
+        return location.onLocation();
+    }
+
+    public void printInfo() {
+        System.out.println("#######        \t#######      \t#######     \t######");
+        System.out.println("Weapon: " + this.getGameChar().getInventory().getWeapon().getName() + "\tDamage: "
+                + this.getGameChar().getDamage() + "\tHealth: " + this.getGameChar().getHealth() + "\tMoney: "
+                + this.getGameChar().getMoney());
     }
 
     public String getName() {
