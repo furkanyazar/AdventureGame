@@ -61,7 +61,8 @@ public class Player {
         System.out.println("###  \t#####           \t############");
         System.out.println(
                 "Id: 1\tName: Safe House\tDescription: This is a safe home for you. There are no enemies here.");
-        System.out.println("Id: 2\tName: Tool Store\tDescription: Shop to buy weapons or armor");
+        System.out.println("Id: 2\tName: Tool Store\tDescription: Shop to buy weapons or armour");
+        System.out.println("##### For exit enter 9 #####");
 
         int selectedLoc = 0;
         boolean choiceControl = false;
@@ -85,6 +86,8 @@ public class Player {
                     location = new ToolStore(this);
                     choiceControl = true;
                     break;
+                case 9:
+                    Runtime.getRuntime().exit(0);
                 default:
                     System.err.print("Wrong choice! ");
                     continue;
@@ -95,8 +98,10 @@ public class Player {
     }
 
     public void printInfo() {
-        System.out.println("#######        \t#######      \t#######     \t######");
-        System.out.println("Weapon: " + this.getGameChar().getInventory().getWeapon().getName() + "\tDamage: "
+        System.out.println("######      \t#######        \t######        \t#######      \t#######     \t######");
+        System.out.println("Armour: " + this.getGameChar().getInventory().getArmour().getName() + "\tWeapon: "
+                + this.getGameChar().getInventory().getWeapon().getName() + "\tBlock: "
+                + this.getGameChar().getInventory().getArmour().getBlock() + "\tDamage: "
                 + this.getGameChar().getDamage() + "\tHealth: " + this.getGameChar().getHealth() + "\tMoney: "
                 + this.getGameChar().getMoney());
     }

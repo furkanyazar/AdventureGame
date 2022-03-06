@@ -30,7 +30,7 @@ public class ToolStore extends NormalLoc {
                     choiceControl = true;
                     break;
                 case 2:
-                    System.out.println("2 seçildi");
+                    selectArmour();
                     choiceControl = true;
                     break;
                 case 9:
@@ -80,6 +80,46 @@ public class ToolStore extends NormalLoc {
                         .setMoney(this.getPlayer().getGameChar().getMoney() - selectedWeapon.getPrice());
                 System.out.println("Remaining money: " + this.getPlayer().getGameChar().getMoney());
                 this.getPlayer().getGameChar().getInventory().setWeapon(selectedWeapon);
+                break;
+            }
+        }
+    }
+
+    public void selectArmour() {
+        System.out.println("###  \t#####        \t######       \t######");
+
+        for (Armour armour : Armour.getArmours()) {
+            System.out.println("Id: " + armour.getId() + "\tName: " + armour.getName() + "\tBlock: "
+                    + armour.getBlock() + "\tPrice: " + armour.getPrice());
+        }
+
+        System.out.println("##### For exit enter 9 #####");
+
+        int selectedId = 0;
+
+        while (true) {
+            System.out.print("Choose a armour: ");
+
+            try {
+                selectedId = Integer.parseInt(scanner.nextLine());
+            } catch (Exception e) {
+                System.err.print("Wrong choice! ");
+                continue;
+            }
+
+            if (selectedId == 9)
+                break;
+
+            Armour selectedArmour = Armour.getArmourById(selectedId);
+
+            if (selectedArmour.getPrice() > this.getPlayer().getGameChar().getMoney())
+                System.err.println("You don't have enough money");
+            else {
+                System.out.println(selectedArmour.getName() + " was bought");
+                this.getPlayer().getGameChar()
+                        .setMoney(this.getPlayer().getGameChar().getMoney() - selectedArmour.getPrice());
+                System.out.println("Remaining money: " + this.getPlayer().getGameChar().getMoney());
+                this.getPlayer().getGameChar().getInventory().setArmour(selectedArmour);
                 break;
             }
         }
