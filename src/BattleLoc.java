@@ -42,8 +42,17 @@ public class BattleLoc extends Location {
                 case 1:
                     if (fight(numberOfMonster)) {
                         System.out.println("All monsters are defeated");
+
+                        if (this.getAward() == "Food")
+                            this.getPlayer().getInventory().setFood(true);
+                        if (this.getAward() == "Firewood")
+                            this.getPlayer().getInventory().setFirewood(true);
+                        if (this.getAward() == "Water")
+                            this.getPlayer().getInventory().setWater(true);
+
                         return true;
                     }
+
                     choiceControl = true;
                     break;
                 case 2:
@@ -118,7 +127,7 @@ public class BattleLoc extends Location {
             }
         }
 
-        return false;
+        return true;
     }
 
     public void afterHits() {

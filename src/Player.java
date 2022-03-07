@@ -59,15 +59,17 @@ public class Player {
 
     public boolean selectLoc() {
         printInfo();
-        
+
         System.out.println();
         System.out.println("###  \t#####           \t############");
         System.out.println(
                 "Id: 1\tName: Safe House\tDescription: This is a safe home for you. There are no enemies here.");
         System.out.println("Id: 2\tName: Tool Store\tDescription: Shop to buy weapons or armour");
         System.out.println("Id: 3\tName: Cave\t\tDescription: Be careful! The monster may come but you can earn food");
-        System.out.println("Id: 4\tName: Forest\t\tDescription: Be careful! The monster may come but you can earn firewood");
-        System.out.println("Id: 5\tName: River\t\tDescription: Be careful! The monster may come but you can earn water");
+        System.out.println(
+                "Id: 4\tName: Forest\t\tDescription: Be careful! The monster may come but you can earn firewood");
+        System.out
+                .println("Id: 5\tName: River\t\tDescription: Be careful! The monster may come but you can earn water");
         System.out.println("##### For exit enter 9 #####");
 
         int selectedLoc = 0;
@@ -93,19 +95,34 @@ public class Player {
                     choiceControl = true;
                     break;
                 case 3:
+                    if (this.getInventory().isFood()) {
+                        System.out.println("You have already cleared this area");
+                        break;
+                    }
+
                     location = new Cave(this);
                     choiceControl = true;
                     break;
                 case 4:
+                    if (this.getInventory().isFirewood()) {
+                        System.out.println("You have already cleared this area");
+                        break;
+                    }
+
                     location = new Forest(this);
                     choiceControl = true;
                     break;
                 case 5:
+                    if (this.getInventory().isWater()) {
+                        System.out.println("You have already cleared this area");
+                        break;
+                    }
+
                     location = new River(this);
                     choiceControl = true;
                     break;
                 case 9:
-                    Runtime.getRuntime().exit(0);
+                    System.exit(0);
                 default:
                     System.err.print("Wrong choice! ");
                     continue;
@@ -139,6 +156,10 @@ public class Player {
 
     public void setGameChar(GameChar gameChar) {
         this.gameChar = gameChar;
+    }
+
+    public Inventory getInventory() {
+        return this.getGameChar().getInventory();
     }
 
 }
