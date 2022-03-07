@@ -62,6 +62,9 @@ public class Player {
         System.out.println(
                 "Id: 1\tName: Safe House\tDescription: This is a safe home for you. There are no enemies here.");
         System.out.println("Id: 2\tName: Tool Store\tDescription: Shop to buy weapons or armour");
+        System.out.println("Id: 3\tName: Cave\t\tDescription: Be careful! The monster may come but you can earn food");
+        System.out.println("Id: 4\tName: Forest\t\tDescription: Be careful! The monster may come but you can earn firewood");
+        System.out.println("Id: 5\tName: River\t\tDescription: Be careful! The monster may come but you can earn water");
         System.out.println("##### For exit enter 9 #####");
 
         int selectedLoc = 0;
@@ -84,6 +87,18 @@ public class Player {
                     break;
                 case 2:
                     location = new ToolStore(this);
+                    choiceControl = true;
+                    break;
+                case 3:
+                    location = new Cave(this);
+                    choiceControl = true;
+                    break;
+                case 4:
+                    location = new Forest(this);
+                    choiceControl = true;
+                    break;
+                case 5:
+                    location = new River(this);
                     choiceControl = true;
                     break;
                 case 9:

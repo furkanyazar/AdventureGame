@@ -7,9 +7,9 @@ public class ToolStore extends NormalLoc {
     @Override
     public boolean onLocation() {
         System.out.println("Welcome to the tool store!");
-        System.out.println("1 - Weapons");
-        System.out.println("2 - Armours");
-        System.out.println("9 - Exit");
+        System.out.println("Id: 1\tTools: Weapons");
+        System.out.println("Id: 2\tTools: Armours");
+        System.out.println("##### For exit enter 9 #####");
 
         int selectedOpt = 0;
         boolean choiceControl = false;
