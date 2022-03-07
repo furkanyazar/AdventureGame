@@ -17,6 +17,7 @@ public class BattleLoc extends Location {
     public boolean onLocation() {
         int numberOfMonster = this.numberOfMonster();
 
+        System.out.println();
         System.out.println("You're in the " + this.getName().toLowerCase() + " now");
         System.out.println("Be careful! " + numberOfMonster + " " + this.getMonster().getName().toLowerCase()
                 + (numberOfMonster == 1 ? " lives here" : "s live here"));
@@ -121,6 +122,7 @@ public class BattleLoc extends Location {
     }
 
     public void afterHits() {
+        System.out.println();
         System.out.println("Your health: " + this.getPlayer().getGameChar().getHealth());
         System.out.println("Health of the monster: " + this.getMonster().getHealth());
 
@@ -130,6 +132,7 @@ public class BattleLoc extends Location {
     }
 
     public void playerStatus() {
+        System.out.println();
         System.out.println("######        \t#######      \t#######     \t######");
         System.out
                 .println("Block: "
@@ -140,6 +143,7 @@ public class BattleLoc extends Location {
     }
 
     public void monsterStatus() {
+        System.out.println();
         System.out.println("########      \t#######      \t#######        \t#####");
         System.out.println("Monster: " + this.getMonster().getName() + "\tDamage: " + this.getMonster().getDamage()
                 + "\tHealth: " + this.getMonster().getHealth()

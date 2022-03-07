@@ -18,6 +18,7 @@ public class Game {
 
         Player player = new Player(playerName);
 
+        System.out.println();
         System.out.println("Hi " + player.getName() + ", welcome to this dark and foggy island!");
         System.out.println("Everything that happens here is real!");
 
@@ -25,6 +26,7 @@ public class Game {
 
         while (player.selectLoc());
 
+        System.out.println();
         System.err.println("Game over!");
     }
 

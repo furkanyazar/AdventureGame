@@ -15,6 +15,7 @@ public class Player {
     public void selectChar() {
         GameChar[] gameChars = { new Samurai(), new Archer(), new Knight() };
 
+        System.out.println();
         System.out.println("###  \t#####        \t#######  \t#######   \t######");
         for (GameChar gameChar : gameChars) {
             System.out.println("Id: " + gameChar.getId() + "\tName: " + gameChar.getName() + "\tDamage: "
@@ -58,6 +59,8 @@ public class Player {
 
     public boolean selectLoc() {
         printInfo();
+        
+        System.out.println();
         System.out.println("###  \t#####           \t############");
         System.out.println(
                 "Id: 1\tName: Safe House\tDescription: This is a safe home for you. There are no enemies here.");
@@ -113,6 +116,7 @@ public class Player {
     }
 
     public void printInfo() {
+        System.out.println();
         System.out.println("######      \t#######        \t######        \t#######      \t#######     \t######");
         System.out.println("Armour: " + this.getGameChar().getInventory().getArmour().getName() + "\tWeapon: "
                 + this.getGameChar().getInventory().getWeapon().getName() + "\tBlock: "

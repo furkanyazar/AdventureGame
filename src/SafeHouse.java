@@ -6,7 +6,9 @@ public class SafeHouse extends NormalLoc {
 
     @Override
     public boolean onLocation() {
-        System.out.println("You are in the safe house. Your health has been restored.");
+        System.out.println();
+        System.out.println("You are in the safe house. Your health has been restored");
+        this.getPlayer().getGameChar().setHealth(this.getPlayer().getGameChar().getDefaultHealth());
         return true;
     }
 

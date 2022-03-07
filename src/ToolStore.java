@@ -6,6 +6,7 @@ public class ToolStore extends NormalLoc {
 
     @Override
     public boolean onLocation() {
+        System.out.println();
         System.out.println("Welcome to the tool store!");
         System.out.println("Id: 1\tTools: Weapons");
         System.out.println("Id: 2\tTools: Armours");
@@ -46,6 +47,7 @@ public class ToolStore extends NormalLoc {
     }
 
     public void selectWeapon() {
+        System.out.println();
         System.out.println("###  \t#####        \t#######       \t######");
 
         for (Weapon weapon : Weapon.getWeapons()) {
@@ -86,6 +88,7 @@ public class ToolStore extends NormalLoc {
     }
 
     public void selectArmour() {
+        System.out.println();
         System.out.println("###  \t#####        \t######       \t######");
 
         for (Armour armour : Armour.getArmours()) {
