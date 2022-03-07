@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Monster {
 
     private int id;
@@ -6,6 +8,7 @@ public class Monster {
     private int health;
     private int gold;
     private int defaultHealth;
+    protected static Random random = new Random();
 
     public Monster(int id, String name, int damage, int health, int gold) {
         this.id = id;

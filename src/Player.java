@@ -70,6 +70,8 @@ public class Player {
                 "Id: 4\tName: Forest\t\tDescription: Be careful! The monster may come but you can earn firewood");
         System.out
                 .println("Id: 5\tName: River\t\tDescription: Be careful! The monster may come but you can earn water");
+        System.out
+                .println("Id: 6\tName: Mine\t\tDescription: Be careful! The monster may come but you can earn item");
         System.out.println("##### For exit enter 9 #####");
 
         int selectedLoc = 0;
@@ -119,6 +121,10 @@ public class Player {
                     }
 
                     location = new River(this);
+                    choiceControl = true;
+                    break;
+                case 6:
+                    location = new Mine(this);
                     choiceControl = true;
                     break;
                 case 9:

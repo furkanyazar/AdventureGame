@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class Location {
@@ -6,6 +7,7 @@ public abstract class Location {
     private String name;
 
     protected Scanner scanner = new Scanner(System.in);
+    protected Random random = new Random();
 
     public Location(Player player, String name) {
         this.player = player;
