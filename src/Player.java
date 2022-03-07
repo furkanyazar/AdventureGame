@@ -117,7 +117,7 @@ public class Player {
         System.out.println("Armour: " + this.getGameChar().getInventory().getArmour().getName() + "\tWeapon: "
                 + this.getGameChar().getInventory().getWeapon().getName() + "\tBlock: "
                 + this.getGameChar().getInventory().getArmour().getBlock() + "\tDamage: "
-                + this.getGameChar().getDamage() + "\tHealth: " + this.getGameChar().getHealth() + "\tMoney: "
+                + this.getGameChar().getTotalDamage() + "\tHealth: " + this.getGameChar().getHealth() + "\tMoney: "
                 + this.getGameChar().getMoney());
     }
 

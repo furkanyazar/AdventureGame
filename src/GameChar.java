@@ -5,6 +5,7 @@ public abstract class GameChar {
     private int damage;
     private int health;
     private int money;
+    private int defaultHealth;
     private Inventory inventory;
 
     public GameChar(int id, String name, int damage, int health, int money) {
@@ -13,7 +14,20 @@ public abstract class GameChar {
         this.damage = damage;
         this.health = health;
         this.money = money;
+        this.defaultHealth = health;
         this.inventory = new Inventory();
+    }
+
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
+    }
+
+    public int getTotalDamage() {
+        return damage + this.getInventory().getWeapon().getDamage();
     }
 
     public int getId() {
@@ -33,7 +47,7 @@ public abstract class GameChar {
     }
 
     public int getDamage() {
-        return damage + this.getInventory().getWeapon().getDamage();
+        return damage;
     }
 
     public void setDamage(int damage) {
@@ -45,6 +59,9 @@ public abstract class GameChar {
     }
 
     public void setHealth(int health) {
+        if (health < 0)
+            health = 0;
+
         this.health = health;
     }
 
